@@ -1,0 +1,2 @@
+# nix-desktop
+gamingPC
