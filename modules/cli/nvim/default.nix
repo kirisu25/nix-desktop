@@ -20,7 +20,7 @@ let
     stylua
     # nix
     nil
-    nixfmt-rfc-style
+    nixfmt
     # Python
     pyright
     ruff
@@ -58,15 +58,19 @@ let
 
   # A lenient substitution function that mimics the old `substituteAll` behavior
   # by ignoring patterns that are not found in the file.
-  lenientSubstitute = file: vars: pkgs.writeText (builtins.baseNameOf file) (
-    pkgs.lib.foldl (acc: name:
-      let
-        value = builtins.getAttr name vars;
-        # Coerce derivations to their store path string representation.
-        stringValue = if pkgs.lib.isDerivation value then "${value}" else value;
-      in pkgs.lib.replaceStrings [ "@${name}@" ] [ stringValue ] acc
-    ) (builtins.readFile file) (builtins.attrNames vars)
-  );
+  lenientSubstitute =
+    file: vars:
+    pkgs.writeText (builtins.baseNameOf file) (
+      pkgs.lib.foldl (
+        acc: name:
+        let
+          value = builtins.getAttr name vars;
+          # Coerce derivations to their store path string representation.
+          stringValue = if pkgs.lib.isDerivation value then "${value}" else value;
+        in
+        pkgs.lib.replaceStrings [ "@${name}@" ] [ stringValue ] acc
+      ) (builtins.readFile file) (builtins.attrNames vars)
+    );
 
   configFile = file: {
     "nvim/${file}".source = lenientSubstitute (./. + "/${file}") (
@@ -87,6 +91,8 @@ in
     enable = true;
     viAlias = true;
     defaultEditor = true;
+    withRuby = true;
+    withPython3 = true;
     extraPackages = buildInputs ++ lsp;
   };
 

@@ -9,7 +9,7 @@
   xdg.configFile."helix/ignore".source = ./ignore;
 
   home.packages = with pkgs; [
-    nixfmt-rfc-style
+    nixfmt
     gopls
     nil
     ruff

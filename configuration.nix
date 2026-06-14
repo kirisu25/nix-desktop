@@ -211,7 +211,7 @@ in
     mako
     uwsm
     waybar
-    swww
+    awww
   ];
 
   # hyprland
@@ -221,7 +221,7 @@ in
     withUWSM = true;
   };
 
-  environment.loginSHellInit = ''
+  environment.loginShellInit = ''
     if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
           exec uwsm start hyprland-uwsm.desktop
         fi
@@ -229,8 +229,4 @@ in
   '';
 
   xdg.portal.enable = true;
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.kirisu25 = import ./home.nix;
 }

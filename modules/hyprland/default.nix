@@ -1,13 +1,20 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = false;
+    configType = "hyprlang";
   };
 
   xdg.configFile = {
-    "hypr/hyprland.conf".source = ./hyprland.conf;
+    "hypr/hyprland.conf".source =
+      config.lib.file.mkOutOfStoreSymlink "/home/kirisu25/nix-desktop/modules/hyprland/hyprland.conf";
   };
 
   systemd.user.services = {
@@ -44,11 +51,11 @@
       };
       Service = {
         Path = [
-          pkgs.swww
+          pkgs.awww
           pkgs.coreutils
         ];
-        ExecStart = "${pkgs.uwsm}/bin/uwsm app -- ${pkgs.swww}/bin/swww-daemon";
-        ExecStartPost = "${pkgs.coreutils}/bin/sleep 0.5; ${pkgs.uwsm}/bin/uwsm app -- ${pkgs.swww}/bin/swww img -a /home/kirisu25/.config/hypr/wallpaper/paper.jpg";
+        ExecStart = "${pkgs.uwsm}/bin/uwsm app -- ${pkgs.awww}/bin/swww-daemon";
+        ExecStartPost = "${pkgs.coreutils}/bin/sleep 0.5; ${pkgs.uwsm}/bin/uwsm app -- ${pkgs.awww}/bin/swww img -a /home/kirisu25/.config/hypr/wallpaper/paper.jpg";
         Restart = "on-failure";
       };
     };
@@ -57,7 +64,7 @@
 
   home.packages =
     (with pkgs; [
-      swww
+      awww
       wl-clipboard
       wlogout
       wireplumber
