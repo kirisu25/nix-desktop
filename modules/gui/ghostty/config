@@ -1,0 +1,23 @@
+# Theme
+theme = TokyoNight
+background-opacity = 0.8
+
+# Font
+font-family = "HackGen Console NF"
+font-feature = -dlig
+font-size =14
+font-style-bold = false
+font-style-italic = false
+font-style-bold-italic = false
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+# cursor-opacity = 0.8
+
+# Other
+mouse-hide-while-typing = true
+resize-overlay = never
+
+# keybind
+keybind = ctrl+enter=unbind

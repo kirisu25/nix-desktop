@@ -1,0 +1,14 @@
+[[language]]
+name = "nix"
+auto-format = true
+formatter = { command = "nixfmt" }
+
+[[language]]
+name = "rust"
+auto-format = true
+formatter = { command = "rustfmt"}
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "gofmt"}

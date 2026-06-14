@@ -1,0 +1,31 @@
+theme = "tokyonight"
+
+[editor]
+line-number = "relative"
+bufferline = "always"
+auto-completion = true
+auto-format = true
+
+shell = ["nu", "--stdin", "--commands"]
+
+[editor.lsp]
+enable = true
+display-messages = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.insert]
+# j = { j = "normal_mode"}
+
+[keys.normal]
+ret = ["open_below", "normal_mode"]
+backspace = "delete_char_backward"
+tab = ":bn"
+S-tab = ":bp"

@@ -1,0 +1,248 @@
+format = "$os$all"
+right_format = '''
+$cmd_duration
+$time
+$battery
+'''
+
+[fill]
+symbol = ""
+
+#[time]
+#disabled = false
+#style = "bold #d3d3d3"
+#format = "[$time]($style)"
+#time_format = "%m/%d %R "
+#utc_time_offset = "+9"
+
+[line_break]
+desabled = true
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+style = "bold #50fa7b"
+truncation_symbol = ".../"
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[git_branch]
+symbol = " "
+style = "bold #ff79c6"
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = "⌘ "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+style = "bold #bd93f9"
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛"
+disabled = true
+threshold = -1
+style = "bold #50fa7b"
+format = "$symbol[${ram}]($style) "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[os]
+disabled = false
+style = "bold #ff8c00"
+format = "[$symbol]($style)"
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = "🪺 "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+
+[character]
+error_symbol = "[](bold #ff5555)"
+success_symbol = "[](bold #50fa7b)"
+
+[cmd_duration]
+style = "bold #f1fa8c"
+format = "[$duration ]($style)"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold #8be9fd"
+show_always = true
+
+# [battery]
+# format = "[$symbol$percentage]($style) "
+
+# [[battery.display]]
+# threshold = 10
+# style = "bold #ff5555"
+# charging_symbol = "󰢜"
+# discharging_symbol = "󰁺"
+
+# [[battery.display]]
+# threshold = 20
+# style = "bold #ffd700"
+# charging_symbol = "󰂆"
+# discharging_symbol = "󰁻"
+
+# [[battery.display]]
+# threshold = 30
+# style = "bold #ffd700"
+# charging_symbol = "󰂇"
+# discharging_symbol = "󰁼"
+
+# [[battery.display]]
+# threshold = 40
+# style = "bold #50fa7b"
+# charging_symbol = "󰂈"
+# discharging_symbol = "󰁽"
+
+# [[battery.display]]
+# threshold = 50
+# style = "bold #50fa7b"
+# charging_symbol = "󰢝"
+# discharging_symbol = "󰁾"
+
+# [[battery.display]]
+# threshold = 60
+# style = "bold #50fa7b"
+# charging_symbol = "󰂉"
+# discharging_symbol = "󰁿"
+
+# [[battery.display]]
+# threshold = 70
+# style = "bold #50fa7b"
+# charging_symbol = "󰢞"
+# discharging_symbol = "󰂀"
+
+# [[battery.display]]
+# threshold = 80
+# style = "bold #50fa7b"
+# charging_symbol = "󰂊"
+# discharging_symbol = "󰂁"
+
+# [[battery.display]]
+# threshold = 90
+# style = "bold #50fa7b"
+# charging_symbol = "󰂋"
+# discharging_symbol = "󰂂"
+
+# [[battery.display]]
+# threshold = 100
+# style = "bold #50fa7b"
+# charging_symbol = "󰂅"
+# discharging_symbol = "󰁹"
