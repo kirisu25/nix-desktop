@@ -5,6 +5,13 @@
   ...
 }:
 {
+
+  imports = [
+    ./waybar
+    ./wofi
+    ./mako
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -22,8 +29,8 @@
     fcitx5-daemon = {
       Unit = {
         Description = "Fcitx5 Input Method Daemon";
-        WantedBy = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
+        partOf = [ "graphical-session.target" ];
       };
       Service = {
         ExecStart = "${pkgs.uwsm}/bin/uwsm app -- ${pkgs.fcitx5}/bin/fcitx5";
@@ -34,8 +41,11 @@
     waybar = {
       Unit = {
         Description = "Waybar status bar";
-        WantedBy = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
+        partOf = [ "graphical-session.target" ];
+        # wantedBy = [ "wayland-session@hyprland-uwsm.target" ];
+        # partOf = [ "wayland-session@hyprland-uwsm.target" ];
+        # after = [ "wayland-session@hyprland-uwsm.target" ];
       };
       Service = {
         ExecStart = "${pkgs.uwsm}/bin/uwsm app -- ${pkgs.waybar}/bin/waybar";
@@ -46,26 +56,29 @@
     swww-daemon = {
       Unit = {
         Description = "Swww wallpaper daemon and setter";
-        WantedBy = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
+        partOf = [ "graphical-session.target" ];
+        # wantedBy = [ "wayland-session@hyprland-uwsm.target" ];
+        # partOf = [ "wayland-session@hyprland-uwsm.target" ];
+        # after = [ "wayland-session@hyprland-uwsm.target" ];
       };
       Service = {
         Path = [
           pkgs.awww
           pkgs.coreutils
         ];
-        ExecStart = "${pkgs.uwsm}/bin/uwsm app -- ${pkgs.awww}/bin/swww-daemon";
-        ExecStartPost = "${pkgs.coreutils}/bin/sleep 0.5; ${pkgs.uwsm}/bin/uwsm app -- ${pkgs.awww}/bin/swww img -a /home/kirisu25/.config/hypr/wallpaper/paper.jpg";
+        ExecStart = "${pkgs.uwsm}/bin/uwsm app -- ${pkgs.awww}/bin/awww-daemon";
+        ExecStartPost = "${pkgs.coreutils}/bin/sleep 0.5; ${pkgs.uwsm}/bin/uwsm app -- ${pkgs.awww}/bin/awww img -a /home/kirisu25/.config/hypr/wallpaper/paper.jpg";
         Restart = "on-failure";
       };
     };
-
   };
 
   home.packages =
     (with pkgs; [
       awww
       wl-clipboard
+      cliphist
       wlogout
       wireplumber
       gtk3
